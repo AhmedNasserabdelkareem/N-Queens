@@ -16,11 +16,11 @@ public class Reader {
 
     private String fileName;
     private int d;
-    public Queen [] read(){
+    public int [] read(){
         BufferedReader reader;
         int count=0;
         int rows = 0;
-        Queen[] board = new Queen[d];
+        int[] board = new int[d];
         try {
             reader = new BufferedReader(new FileReader(fileName));
             String line = reader.readLine();
@@ -28,7 +28,7 @@ public class Reader {
                 String [] temp = line.split(" ");
                 for (int i=0;i<d;i++){
                     if(temp[i].compareTo("Q")==0) {
-                        board[count] = new Queen(count+1,rows+1,i+1);
+                        board[count] = i+1;
                         count++;
                     }
                 }

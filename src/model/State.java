@@ -1,19 +1,21 @@
 package model;
 
+import java.awt.*;
+
 public class State {
 
     private int Dimension;
-    private Queen [] board;
+    private int [] board;
     private int cost;
 
 
-    public State (Queen[] board){
+    public State (int[] board){
         this.board = board;
         Dimension = board.length;
         this.cost=computeCost();
     }
 
-    public Queen[] getBoard(){
+    public int[] getBoard(){
         return this.board;
     }
 
@@ -21,7 +23,7 @@ public class State {
         System.out.println("Board");
         System.out.println("-----");
         for (int i = 0; i < Dimension; i++) {
-                System.out.printf("("+this.board[i].getX() + ","+this.board[i].getY()+")");
+                System.out.printf(String.valueOf(board[i]));
 
         }
         System.out.printf(" Cost = "+cost);
@@ -35,7 +37,7 @@ public class State {
         int cost=0;
         for(int i=0;i<Dimension;i++){
             for (int j=i+1;j<Dimension;j++){
-                if(isThreaten(board[i],board[j])){
+                if(isThreaten(new Point(i+1,board[i]),new Point(j+1,board[j]))){
                     cost+=1;
                 }
             }
@@ -43,7 +45,7 @@ public class State {
         return cost;
     }
 
-    private boolean isThreaten(Queen a, Queen b) {
+    private boolean isThreaten(Point a, Point b) {
         if(a.getX()==b.getX()){
             return true;
         }
