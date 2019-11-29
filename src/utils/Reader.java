@@ -28,7 +28,7 @@ public class Reader {
                 String [] temp = line.split(" ");
                 for (int i=0;i<d;i++){
                     if(temp[i].compareTo("Q")==0) {
-                        board[count] = i+1;
+                        board[count] = rows;
                         count++;
                     }
                 }

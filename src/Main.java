@@ -1,5 +1,6 @@
 import model.Queen;
 import model.State;
+import solver.HillClimbing;
 import utils.Reader;
 
 public class Main {
@@ -8,5 +9,7 @@ public class Main {
         int[] initialBoard = r.read();
         State initialState = new State(initialBoard);
         initialState.showBoard();
+        HillClimbing h = new HillClimbing(initialState);
+        h.showResults();
     }
 }

@@ -4,6 +4,10 @@ import java.awt.*;
 
 public class State {
 
+    public int getDimension() {
+        return Dimension;
+    }
+
     private int Dimension;
     private int [] board;
     private int cost;
@@ -30,14 +34,14 @@ public class State {
         System.out.println();
     }
 
-    private int getCost(){
+    public int getCost(){
         return cost;
     }
     private int computeCost(){
         int cost=0;
         for(int i=0;i<Dimension;i++){
             for (int j=i+1;j<Dimension;j++){
-                if(isThreaten(new Point(i+1,board[i]),new Point(j+1,board[j]))){
+                if(isThreaten(new Point(i,board[i]),new Point(j,board[j]))){
                     cost+=1;
                 }
             }
