@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HillClimbing {
-    private int steps;
-    private long runningTime;
-    private int nodeExpanded;
+    private int steps = 0;
+    private long runningTime = 0;
+    private int nodeExpanded = 0;
     private int [][] finalBoard;
     private State initialState;
     private int d;
@@ -20,45 +20,54 @@ public class HillClimbing {
         this.initialState = initialState;
         d=initialState.getDimension();
         dict= new HashMap<>();
-        nodeExpanded=d*(d-1);
         finalBoard=new int [d][d];
         solve();
     }
 
     private void solve() {
+        if (initialState.getCost() == 0) {
+            constructFinalBoard(initialState.getBoard());
+
+            return;
+        }
         long startTime = System.nanoTime();
-        int cost,BestCost=100000;
-        int [] tempBoard;
+        int cost, BestCost = d*d;
+        int[] tempBoard;
         for (int i = 0; i < d; i++) {
-            for (int j = 0; j <(d-1); j++) {
+            for (int j = 0; j < (d - 1); j++) {
                 tempBoard = copyBoard();
-                int [] h = tempBoard;
-                h[i]=(h[i]+j+1)%d;
-                State temp = new State(h);
-                cost =temp.getCost();
-                if(cost<BestCost){
-                    BestCost=cost;
+                tempBoard[i] = (tempBoard[i] + j + 1) % d;
+                State temp = new State(tempBoard);
+                cost = temp.getCost();
+                if (cost < BestCost) {
+                    BestCost = cost;
+                    dict.clear();
+                    dict.put(new Point(tempBoard[i], i), cost);
+                }else if (cost == BestCost){
+                    dict.put(new Point(tempBoard[i], i), cost);
                 }
-                dict.put(new Point(h[i],i),cost);
             }
         }
-        Boolean check= true;
+        Boolean check = true;
         for (Map.Entry<Point, Integer> entry : dict.entrySet()) {
-           if(entry.getValue()==BestCost){
-               solution=entry.getKey();
-               break;
-           }
+            if (entry.getValue() == BestCost) {
+                solution = entry.getKey();
+                break;
+            }
         }
         long endTime = System.nanoTime();
-        runningTime=(endTime-startTime)/1000000;
-        steps=((solution.y)*(d-1))+(solution.x);
-        tempBoard=initialState.getBoard();
-        tempBoard[solution.y]=solution.x;
+        runningTime = (endTime - startTime) / 1000000;
+        nodeExpanded = d * (d - 1);
+        tempBoard = initialState.getBoard();
+        steps = ((solution.y) * (d - 1)) + (Math.abs(solution.x-tempBoard[solution.y]));
+        tempBoard[solution.y] = solution.x;
+        constructFinalBoard(tempBoard);
+    }
+
+    private void constructFinalBoard(int[] tempBoard) {
         for (int i = 0; i < d; i++) {
             finalBoard[tempBoard[i]][i]=1;
         }
-
-
     }
 
     private int[] copyBoard() {
