@@ -6,9 +6,8 @@ from src.model.State import State
 
 
 class GA:
-    def __init__(self, state, population, dimension, crossover):
+    def __init__(self,population, dimension, crossover):
         self.generationNumber = 1
-        self.initialBoard=state
         self.pSize=population
         self.d=dimension
         self.co=crossover
