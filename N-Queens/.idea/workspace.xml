@@ -14,33 +14,9 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CSP.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CSP.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/solver/CSP.py">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="GeneticAlgorithm.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/solver/GeneticAlgorithm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="120" lean-forward="true" selection-start-line="106" selection-start-column="5" selection-end-line="120" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HillClimping.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/solver/HillClimping.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
         </entry>
       </file>
       <file leaf-file-name="KBeam.py" pinned="false" current-in-tab="false">
@@ -51,8 +27,8 @@
       <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+            <state relative-caret-position="275">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -85,8 +61,8 @@
         <option value="$PROJECT_DIR$/src/test/Sample_Input.txt" />
         <option value="$PROJECT_DIR$/src/model/State.py" />
         <option value="$PROJECT_DIR$/src/solver/GeneticAlgorithm.py" />
-        <option value="$PROJECT_DIR$/src/Main.py" />
         <option value="$PROJECT_DIR$/src/solver/HillClimping.py" />
+        <option value="$PROJECT_DIR$/src/Main.py" />
       </list>
     </option>
   </component>
@@ -99,7 +75,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="951" />
     <option name="y" value="-9" />
     <option name="width" value="978" />
@@ -204,7 +180,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="761" y="-7" width="782" height="838" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -212,8 +188,8 @@
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32930514" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14774282" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4986979" weight="0.32968536" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29548565" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4986979" visible="true" weight="0.32968536" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.45052084" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -263,13 +239,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solver/HillClimping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solver/KBeam.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -345,8 +315,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/solver/CSP.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/solver/HillClimping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solver/GeneticAlgorithm.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -360,23 +334,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state relative-caret-position="275">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/solver/HillClimping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/solver/CSP.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

@@ -1,4 +1,5 @@
 from src.model.State import State
+from src.solver.CSP import Backtracking
 from src.solver.HillClimping import HC
 from src.utils.Reader import Reader
 from src.solver.GeneticAlgorithm import GA
@@ -10,3 +11,5 @@ initialSate=State(board)
 # ga.start()
 hc = HC(initialSate)
 hc.start()
+#csp = Backtracking(initialSate)
+#csp.start()
