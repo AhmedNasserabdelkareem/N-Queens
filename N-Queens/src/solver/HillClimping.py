@@ -16,7 +16,7 @@ class HC:
         self.randSolution = None
         self.isFound=False
     def start(self):
-        if(self.initialstate.cost ==0):
+        if self.initialstate.cost ==0:
             self.report()
             return
         start = time()
@@ -79,4 +79,3 @@ class HC:
         self.randSolution=None
         self.initialBoard = list(range(self.d))
         shuffle(self.initialBoard)
-        pass

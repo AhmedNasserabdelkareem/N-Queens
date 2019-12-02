@@ -1,3 +1,4 @@
+from copy import deepcopy
 from random import shuffle
 from random import randint as rand
 from time import time
@@ -64,20 +65,15 @@ class GA:
             self.mutant(chromo2)
 
     def mutant(self, param):
-        bound = self.d // 2
-        leftIndex = rand(0, bound)
-        RightIndex = rand(bound + 1, self.d - 1)
-        newGen = []
-        for dna in param:
-            if dna not in newGen:
-                newGen.append(dna)
-        for i in range(self.d):
-            if i not in newGen:
-                newGen.append(i)
-        gen = newGen
-        gen[leftIndex] = gen[RightIndex]
-        gen[RightIndex] = gen[leftIndex]
-        self.environment.append(gen)
+        choice = rand(0,3)
+        if choice ==0:
+            self.mutantZero(param)
+        elif choice ==1:
+            self.mutantOne(param)
+        elif choice ==2:
+            self.mutantTwo(param)
+        # elif choice ==3:
+        #     self.mutantThree(param)
 
     def updateEnvironment(self):
         for chrom in self.environment:
@@ -119,6 +115,57 @@ class GA:
             temp[index]='Q'
             print(temp)
 
+    def mutantZero(self, param):
+        bound = self.d // 2
+        leftIndex = rand(0, bound)
+        RightIndex = rand(bound + 1, self.d - 1)
+        newGen = []
+        for dna in param:
+            if dna not in newGen:
+                newGen.append(dna)
+        for i in range(self.d):
+            if i not in newGen:
+                newGen.append(i)
+        gen = newGen
+        gen[leftIndex] = gen[RightIndex]
+        gen[RightIndex] = gen[leftIndex]
+        self.environment.append(gen)
+
+    def mutantOne(self, param):
+        newGen = []
+        for dna in param:
+            if dna not in newGen:
+                newGen.append(dna)
+        for i in range(self.d):
+            if i not in newGen:
+                newGen.append(i)
+        gen = newGen
+        for i in range(0,len(gen),2):
+            temp=deepcopy(gen[i])
+            gen[i]=gen[i+1]
+            gen[i+1]=temp
+        self.environment.append(gen)
+    def mutantTwo(self, param):
+        bound = self.d // 2
+        leftIndex = rand(0, bound)
+        RightIndex = rand(bound + 1, self.d - 1)
+        newGen = []
+        for dna in param:
+            newGen.append(dna)
+        gen = newGen
+        gen[leftIndex] = gen[RightIndex]
+        gen[RightIndex] = gen[leftIndex]
+        self.environment.append(gen)
+
+    def mutantThree(self, param):
+        newGen = []
+        for dna in param:
+            newGen.append(dna)
+        gen = newGen
+        while gen not in self.environment:
+            print(gen,len(self.environment))
+            shuffle(gen)
+        self.environment.append(gen)
 
 
 
