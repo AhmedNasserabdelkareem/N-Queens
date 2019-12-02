@@ -1,17 +1,21 @@
 from time import time
 from random import randint as rand, shuffle
 
+from termcolor import colored
+
 from src.model.State import State
 
 
 class HC:
-    def __init__(self,initialState,restart):
+    def __init__(self,initialState,dimension,restart):
         self.d=len(initialState.board)
         self.initialstate =initialState
         self.initialBoard=initialState.board
         self.solutions = list()
+        self.d=dimension
         self.runningTime = 0
         self.expandedNodes = 0
+        self.board=list()
         self.steps=0
         self.randSolution = None
         self.isFound=False
@@ -22,6 +26,7 @@ class HC:
             self.steps=0
             self.runningTime=0
             self.expandedNodes=0
+            self.board=self.initialstate.board
             #self.report(self.initialstate.board)
             return
         start = time()
@@ -71,14 +76,15 @@ class HC:
         tempBoard=self.initialBoard
         self.steps=((self.randSolution[1]) * (self.d - 1)) + (abs(self.randSolution[0]-tempBoard[self.randSolution[1]]))
         tempBoard[self.randSolution[1]]=self.randSolution[0]
+        self.board=tempBoard
         #self.report(tempBoard)
-    def report(self,board):
+    def report(self):
         print("Running Time : ", self.runningTime, "s")
         print("Number of steps : ", self.steps)
         print("Number of Expanded Nodes : ", self.expandedNodes)
-        print("The Solution >> ", board)
+        print("The Solution >> ", self.board)
         print("The Final State\n")
-        self.constructBoard(board)
+        self.constructBoard(self.board)
         print("= = = = = = = = = = = = = = = = = = = =")
 
     def constructBoard(self,board):
@@ -88,8 +94,15 @@ class HC:
             finalBoard.append(temp)
         for i in range(0, len(board)):
             finalBoard[board[i]][i]='Q'
+
         for i in range(0, len(board)):
-            print(finalBoard[i])
+            for j in range(len(finalBoard[i])):
+                if finalBoard[i][j] =='Q':
+                    print(colored(finalBoard[i][j],self.getColor(j,board)),end=" ")
+                else:
+                    print(finalBoard[i][j],end=" ")
+            print()
+
 
     def copyBoard(self):
         temp = list()
@@ -102,3 +115,19 @@ class HC:
         self.randSolution=None
         self.initialBoard = list(range(self.d))
         shuffle(self.initialBoard)
+    def getColor(self,j,board):
+        for col in range(len(board)):
+            if col!=j:
+                if self.isThreaten(board[j],j,board[col],col):
+                    return "red"
+
+        return "green"
+
+    def isThreaten(self, i, param, j, param1):
+        if i == j:
+            return True
+        if param == param1:
+            return True
+        if abs(i - j) == abs(param1 - param):
+            return True
+        return False

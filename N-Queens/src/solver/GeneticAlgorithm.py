@@ -3,6 +3,8 @@ from random import shuffle
 from random import randint as rand
 from time import time
 
+from termcolor import colored
+
 from src.model.State import State
 
 
@@ -33,7 +35,6 @@ class GA:
         self.runningTime=end-start
         if len(self.un)!=0:
             self.expandedNodes = len(self.un)
-        self.report()
 
 
 
@@ -113,7 +114,12 @@ class GA:
             temp = ['#'] * self.d
             index = self.solution.index(i)
             temp[index]='Q'
-            print(temp)
+            for j in range(len(temp)):
+                if temp[j] == 'Q':
+                    print(colored(temp[j], self.getColor(j,self.solution)), end=" ")
+                else:
+                    print(temp[j], end=" ")
+            print()
 
     def mutantZero(self, param):
         bound = self.d // 2
@@ -166,6 +172,25 @@ class GA:
             print(gen,len(self.environment))
             shuffle(gen)
         self.environment.append(gen)
+
+    def getColor(self, j, board):
+        for col in range(len(board)):
+            if col != j:
+                if self.isThreaten(board[j], j, board[col], col):
+                    return "red"
+
+        return "green"
+
+    def isThreaten(self, i, param, j, param1):
+        if i == j:
+            return True
+        if param == param1:
+            return True
+        if abs(i - j) == abs(param1 - param):
+            return True
+        return False
+
+
 
 
 

@@ -27,7 +27,7 @@ class Beam:
             solver=HC(state,False)
             solver.start()
             self.steps+=solver.steps
-            self.expandedNodes+=self.expandedNodes
+            self.expandedNodes+=solver.expandedNodes
             self.addSolutions(self.board[i],solver.solutions)
         self.selectThebest()
         end=time()
@@ -70,13 +70,12 @@ class Beam:
         print("Best Solutions")
 
         for i in range(len(self.bestSolutions)):
-            if(self.minCost==0):
-                print("The Solution >> ", self.bestSolutions[i],"With Cost",self.minCost[i])
-                print("The Final State\n")
-                self.constructBoard(self.bestSolutions[i],self.minCost[i])
-                print("= = = = = = = = = = = = = = = = = = = =")
+            print("The Solution >> ", self.bestSolutions[i],"With Cost",self.minCost[i])
+            print("The Final State\n")
+            self.constructBoard(self.bestSolutions[i])
+            print("= = = = = = = = = = = = = = = = = = = =")
 
-    def constructBoard(self,board,cost):
+    def constructBoard(self,board):
         finalBoard=list()
         for i in range(0, len(board)):
             temp = ['#'] * self.d
@@ -85,14 +84,28 @@ class Beam:
             finalBoard[board[i]][i]='Q'
 
         for i in range(0, len(board)):
-            for j in finalBoard[i]:
-                if cost==0:
-                    if j =='Q':
-                        print(colored(j,"green"),end=" ")
-                    else:
-                        print(j,end=" ")
+            for j in range(len(finalBoard[i])):
+                if finalBoard[i][j] =='Q':
+                    print(colored(finalBoard[i][j],self.getColor(j,board)),end=" ")
                 else:
-                    print(j,end=" ")
+                    print(finalBoard[i][j],end=" ")
             print()
+
+    def getColor(self,j,board):
+        for col in range(len(board)):
+            if col!=j:
+                if self.isThreaten(board[j],j,board[col],col):
+                    return "red"
+
+        return "green"
+
+    def isThreaten(self, i, param, j, param1):
+        if i == j:
+            return True
+        if param == param1:
+            return True
+        if abs(i - j) == abs(param1 - param):
+            return True
+        return False
 
 

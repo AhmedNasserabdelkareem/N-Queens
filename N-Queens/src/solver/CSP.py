@@ -2,6 +2,8 @@ from copy import deepcopy
 from random import choice
 from time import time
 
+from termcolor import colored
+
 
 class Backtracking:
     def __init__(self,size):
@@ -13,6 +15,7 @@ class Backtracking:
         self.stackDomains=list()
         self.stackVisits=list()
         self.runningTime=0
+        self.expandedNodes = 0
         self.steps=0
         self.visited=self.initialVisits(size)
 
@@ -32,6 +35,7 @@ class Backtracking:
                 temp = deepcopy(self.domains)
                 newD = self.updateDomains(ypos, col,temp)
                 self.stackDomains.append(newD)
+                self.expandedNodes+=1
                 tempvisited = deepcopy(self.visited)
                 newVisited = self.updatevisits(ypos,col,tempvisited)
                 self.stackVisits.append(newVisited)
@@ -69,7 +73,6 @@ class Backtracking:
         self.steps=count
         for k,v in self.domains.items():
             self.solution.append(v[0])
-        self.report()
 
 
 
@@ -100,6 +103,7 @@ class Backtracking:
     def report(self):
         print("Running Time : ",self.runningTime,"s")
         print("Number of steps : ",self.steps)
+        print("Number of Expanded Nodes : ",self.expandedNodes)
         print("The Solution >> ",self.solution)
         print("The Final State\n")
         self.constructBoard()
@@ -110,7 +114,12 @@ class Backtracking:
             temp = ['#'] * self.d
             index = self.solution.index(i)
             temp[index]='Q'
-            print(temp)
+            for j in range(len(temp)):
+                if temp[j] == 'Q':
+                    print(colored(temp[j], self.getColor(j,self.solution)), end=" ")
+                else:
+                    print(temp[j], end=" ")
+            print()
 
     def initialVisits(self, size):
         temp = dict()
@@ -139,5 +148,23 @@ class Backtracking:
         for i in self.domains[col]:
             if self.visited[col][i]==False:
                 return i
+
+    def getColor(self, j, board):
+        for col in range(len(board)):
+            if col != j:
+                if self.isThreaten(board[j], j, board[col], col):
+                    return "red"
+
+        return "green"
+
+    def isThreaten(self, i, param, j, param1):
+        if i == j:
+            return True
+        if param == param1:
+            return True
+        if abs(i - j) == abs(param1 - param):
+            return True
+        return False
+
 
 
