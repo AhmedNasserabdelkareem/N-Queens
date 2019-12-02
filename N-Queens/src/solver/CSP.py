@@ -98,12 +98,12 @@ class Backtracking:
                 return True
         return False
     def report(self):
-        print("Running Time : ",self.runningTime,"s");
-        print("Number of steps : ",self.steps);
+        print("Running Time : ",self.runningTime,"s")
+        print("Number of steps : ",self.steps)
         print("The Solution >> ",self.solution)
         print("The Final State\n")
         self.constructBoard()
-        print("= = = = = = = = = = = = = = = = = = = =");
+        print("= = = = = = = = = = = = = = = = = = = =")
 
     def constructBoard(self):
         for i in range(0,len(self.solution)):

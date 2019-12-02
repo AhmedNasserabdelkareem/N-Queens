@@ -100,13 +100,13 @@ class GA:
         print(self.minCosts,">>",len(self.un))
 
     def report(self):
-        print("Running Time : ",self.runningTime,"s");
-        print("Number of generations : ",self.generationNumber);
-        print("Number of Expanded Nodes : ",self.expandedNodes);
+        print("Running Time : ",self.runningTime,"s")
+        print("Number of generations : ",self.generationNumber)
+        print("Number of Expanded Nodes : ",self.expandedNodes)
         print("The Solution >> ",self.solution)
         print("The Final State\n")
         self.constructBoard()
-        print("= = = = = = = = = = = = = = = = = = = =");
+        print("= = = = = = = = = = = = = = = = = = = =")
 
     def constructBoard(self):
         for i in range(0,len(self.solution)):
