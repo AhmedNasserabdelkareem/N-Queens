@@ -27,10 +27,10 @@ Example:
 
 **Models and Utils**  
 
-*Reader :*
+*Reader :*  
 Use it to read sample input file to get initalBoard.we can represent a 8-queen sol in a 2 dimension list filled with 0 and then, fill it with 8 ones representing the position of the queen. A better and simpler representation is that a list of length 8. Each index specifies a column of the board. The value of each index is between 0 and 7 representing the the row of a queen in a column.
 
-*State:*
+*State:*  
 Take the board as we described in Reader and holding all required info about the board like he cost of this board by using two methods:
 
 
@@ -38,17 +38,17 @@ Take the board as we described in Reader and holding all required info about the
 
 **Algorithms**
 
-* Hill Climbing
+* Hill Climbing  
  Start : Looping on all cells and compute cost in each one then select the best solution.  
  Restart: change the initial state in case of algorithm stucks in local optima .  
 
-* K-Beam 
+* K-Beam   
  GenerateBoards: generate k random boards.  
  selectTheBest: get the best K solutions.  
  Addsolutions: add the best solutions of each successor.   
 
 
-* Genetic Algorithm
+* Genetic Algorithm  
  InitializeEnvironment: get P random solutions where P is the population size.  
  checkGoal: check if the solution with cost equals zero exists in the environment.  
  Crossover: make the crossover operation between two chromosomes.  
@@ -56,7 +56,7 @@ Take the board as we described in Reader and holding all required info about the
  updateEnvironment: set the environment to the new chromosomes.  
 
 
-* CSP
+* CSP  
  initialDomains: create the valid domain for each variable.  
  updateDomains: after assignment of any variable we need to update the domains of neighbours.  
  isDanger: if our path may lead to wrong answer.  
@@ -70,7 +70,7 @@ Take the board as we described in Reader and holding all required info about the
 
 **Sample runs**
 
-* Hill Climbing
+* Hill Climbing  
 
 To start Hill climbing algorithms we need to set parameters
 hc = HC(initialSate,Dimension,False) #using initial State, Dimension of board,to restart algorithm till solve set True
@@ -83,7 +83,7 @@ hc = HC(initialSate,Dimension,False) #using initial State, Dimension of board,to
 
 
 
-* K-Beam
+* K-Beam  
 
 
 To start K-Beam algorithm we need 2 values
@@ -101,7 +101,7 @@ Start algorithm with K=8 and Dimension = 8
 
 
 
-* Genetic Algorithm
+* Genetic Algorithm  
 
 To start genetic algorithm 
 ga = GA(500,Dimension,3) #parameters: population size , Dimension of board, crossover (Hint:random start)
@@ -114,7 +114,7 @@ Start algorithm with population size =500 and Dimension = 8 and crossover =3
 
 
 
-* CSP
+* CSP  
 
 To start CSP we just need to pass Dimension
 csp = Backtracking(Dimension)#parameters: Dimension of board (Hint:random start)
