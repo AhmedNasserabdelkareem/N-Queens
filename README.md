@@ -43,26 +43,26 @@ Start : Looping on all cells and compute cost in each one then select the best s
 Restart: change the initial state in case of algorithm stucks in local optima .
 
 * K-Beam 
-GenerateBoards: generate k random boards.
-selectTheBest: get the best K solutions.
-Addsolutions: add the best solutions of each successor. 
+- GenerateBoards: generate k random boards.
+- selectTheBest: get the best K solutions.
+- Addsolutions: add the best solutions of each successor. 
 
 
 * Genetic Algorithm
-InitializeEnvironment: get P random solutions where P is the population size.
-checkGoal: check if the solution with cost equals zero exists in the environment.
-Crossover: make the crossover operation between two chromosomes
-Mutation : using many approaches for mutation and select one of them randomly.
-updateEnvironment: set the environment to the new chromosomes.
+- InitializeEnvironment: get P random solutions where P is the population size.
+- checkGoal: check if the solution with cost equals zero exists in the environment.
+- Crossover: make the crossover operation between two chromosomes
+- Mutation : using many approaches for mutation and select one of them randomly.
+- updateEnvironment: set the environment to the new chromosomes.
 
 
 * CSP
-initialDomains: create the valid domain for each variable.
-updateDomains: after assignment of any variable we need to update the domains of neighbours.
-isDanger: if our path may lead to wrong answer.
-updateVisits:  to track the visited nodes after each assignment.
-Allvisited: check if all successors of this node is visited or not.
-Choice: choose the assignment that may not lead to the wrong answer.
+- initialDomains: create the valid domain for each variable.
+- updateDomains: after assignment of any variable we need to update the domains of neighbours.
+- isDanger: if our path may lead to wrong answer.
+- updateVisits:  to track the visited nodes after each assignment.
+- Allvisited: check if all successors of this node is visited or not.
+- Choice: choose the assignment that may not lead to the wrong answer.
 
 
 
