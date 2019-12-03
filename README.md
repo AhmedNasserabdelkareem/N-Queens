@@ -12,20 +12,20 @@ Example:
 
 **Project Structure**
 
-├── model
-│   ├── State.py
-├── solvers
-│   ├── CSP.py
-│   ├── Genetic Algorithm.py
-│   ├── HillClimbing.py
-│   ├── KBeam.py
-├── test
-│   ├──Sample_Input.txt
-├── utils
-│   ├──Reader
-└── Main.py 
+├── model  
+│   ├── State.py  
+├── solvers  
+│   ├── CSP.py  
+│   ├── Genetic Algorithm.py  
+│   ├── HillClimbing.py  
+│   ├── KBeam.py  
+├── test  
+│   ├──Sample_Input.txt  
+├── utils  
+│   ├──Reader  
+└── Main.py  
 
-**Models and Utils**
+**Models and Utils**  
 
 *Reader :*
 Use it to read sample input file to get initalBoard.we can represent a 8-queen sol in a 2 dimension list filled with 0 and then, fill it with 8 ones representing the position of the queen. A better and simpler representation is that a list of length 8. Each index specifies a column of the board. The value of each index is between 0 and 7 representing the the row of a queen in a column.
@@ -39,30 +39,30 @@ Take the board as we described in Reader and holding all required info about the
 **Algorithms**
 
 * Hill Climbing
-Start : Looping on all cells and compute cost in each one then select the best solution.
-Restart: change the initial state in case of algorithm stucks in local optima .
+ Start : Looping on all cells and compute cost in each one then select the best solution.  
+ Restart: change the initial state in case of algorithm stucks in local optima .  
 
 * K-Beam 
-- GenerateBoards: generate k random boards.
-- selectTheBest: get the best K solutions.
-- Addsolutions: add the best solutions of each successor. 
+ GenerateBoards: generate k random boards.  
+ selectTheBest: get the best K solutions.  
+ Addsolutions: add the best solutions of each successor.   
 
 
 * Genetic Algorithm
-- InitializeEnvironment: get P random solutions where P is the population size.
-- checkGoal: check if the solution with cost equals zero exists in the environment.
-- Crossover: make the crossover operation between two chromosomes
-- Mutation : using many approaches for mutation and select one of them randomly.
-- updateEnvironment: set the environment to the new chromosomes.
+ InitializeEnvironment: get P random solutions where P is the population size.  
+ checkGoal: check if the solution with cost equals zero exists in the environment.  
+ Crossover: make the crossover operation between two chromosomes.  
+ Mutation : using many approaches for mutation and select one of them randomly.  
+ updateEnvironment: set the environment to the new chromosomes.  
 
 
 * CSP
-- initialDomains: create the valid domain for each variable.
-- updateDomains: after assignment of any variable we need to update the domains of neighbours.
-- isDanger: if our path may lead to wrong answer.
-- updateVisits:  to track the visited nodes after each assignment.
-- Allvisited: check if all successors of this node is visited or not.
-- Choice: choose the assignment that may not lead to the wrong answer.
+ initialDomains: create the valid domain for each variable.  
+ updateDomains: after assignment of any variable we need to update the domains of neighbours.  
+ isDanger: if our path may lead to wrong answer.  
+ updateVisits:  to track the visited nodes after each assignment.  
+ Allvisited: check if all successors of this node is visited or not.  
+ Choice: choose the assignment that may not lead to the wrong answer.  
 
 
 
