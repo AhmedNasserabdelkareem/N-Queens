@@ -26,6 +26,7 @@ Example:
 └── Main.py 
 
 **Models and Utils**
+
 *Reader :*
 Use it to read sample input file to get initalBoard.we can represent a 8-queen sol in a 2 dimension list filled with 0 and then, fill it with 8 ones representing the position of the queen. A better and simpler representation is that a list of length 8. Each index specifies a column of the board. The value of each index is between 0 and 7 representing the the row of a queen in a column.
 
@@ -37,17 +38,17 @@ Take the board as we described in Reader and holding all required info about the
 
 **Algorithms**
 
-*Hill Climbing*
+* Hill Climbing
 Start : Looping on all cells and compute cost in each one then select the best solution.
 Restart: change the initial state in case of algorithm stucks in local optima .
 
-*K-Beam* 
+* K-Beam 
 GenerateBoards: generate k random boards.
 selectTheBest: get the best K solutions.
 Addsolutions: add the best solutions of each successor. 
 
 
-*Genetic Algorithm*
+* Genetic Algorithm
 InitializeEnvironment: get P random solutions where P is the population size.
 checkGoal: check if the solution with cost equals zero exists in the environment.
 Crossover: make the crossover operation between two chromosomes
@@ -69,7 +70,7 @@ Choice: choose the assignment that may not lead to the wrong answer.
 
 **Sample runs**
 
-*Hill Climbing*
+* Hill Climbing
 
 To start Hill climbing algorithms we need to set parameters
 hc = HC(initialSate,Dimension,False) #using initial State, Dimension of board,to restart algorithm till solve set True
@@ -82,7 +83,7 @@ hc = HC(initialSate,Dimension,False) #using initial State, Dimension of board,to
 
 
 
-* K-Beam *
+* K-Beam
 
 
 To start K-Beam algorithm we need 2 values
